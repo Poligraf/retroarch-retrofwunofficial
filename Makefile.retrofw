@@ -117,6 +117,7 @@ DEF_FLAGS += -ffunction-sections -fdata-sections
 DEF_FLAGS += -I. -Ideps -Ideps/stb -DDINGUX=1 -MMD
 DEF_FLAGS += -Wall -Wno-unused-variable
 DEF_FLAGS += -std=gnu99 -D_GNU_SOURCE
+DEF_FLAGS += -fcommon -ffunction-sections -fdata-sections -fsingle-precision-constant
 
 
 # DEF_FLAGS := -march=mips32 -mtune=mips32 -mno-mips16 -mno-shared -mbranch-likely -pipe -fomit-frame-pointer
@@ -164,7 +165,7 @@ ifeq ($(DEBUG), 1)
    DEF_FLAGS += -O0 -g -DDEBUG -D_DEBUG
 else
    OBJDIR := $(OBJDIR_BASE)/release
-   DEF_FLAGS += -O2 -DNDEBUG
+   DEF_FLAGS += -O3 -DNDEBUG
 endif
 
 include Makefile.common
