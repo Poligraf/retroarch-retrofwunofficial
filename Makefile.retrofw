@@ -230,13 +230,7 @@ clean:
 	rm -f *.d
 	rm -rf $(OPK_NAME)
 
-opk: $(TARGET)
-	echo "$$DESKTOP_ENTRY" > default.gcw0.desktop
-	rm -f $(OPK_NAME)
-	cp media/ico_src/icon32.png retroarch.png
-	if [ $$STRIP_BIN -eq 1 ]; then $(STRIP) --strip-unneeded retroarch; fi
-	$(GCW0_MK_SQUASH_FS) retroarch default.gcw0.desktop retroarch.png $(OPK_NAME) -all-root -no-xattrs -noappend -no-exports
-	rm -f default.gcw0.desktop retroarch.png
+
 
 .PHONY: all clean opk
 
